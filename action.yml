@@ -15,8 +15,9 @@ runs:
     - id: matrix
       run: |
         echo "value=[\"a\", \"b\", \"c\"]" >> $GITHUB_OUTPUT
-    - run: |
-        echo "${{ steps.matrix.outputs.value }}"
+    - run: 
+        shell:
+          echo "${{ steps.matrix.outputs.value }}"
     # - name: Print to Log
     #   id: print-to-log
     #   uses: actions/hello-world-javascript-action@main
