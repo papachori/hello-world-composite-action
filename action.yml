@@ -16,14 +16,14 @@ runs:
       shell: bash
       run: echo "yamls=[\"a\", \"b\", \"c\"]" >> $GITHUB_OUTPUT
     - run: |
-        echo "${{ fromJson(steps.matrix.outputs.yamls) }}" >> $GITHUB_STEP_SUMMARY
+        echo "${{ steps.matrix.outputs.yamls }}" >> $GITHUB_STEP_SUMMARY
       shell: bash
 
-    # - name: Print to Log
-    #   id: print-to-log
-    #   uses: actions/hello-world-javascript-action@main
-    #   with:
-    #     who-to-greet: ${{ matrix.value }}
+    - name: Print to Log
+      id: print-to-log
+      uses: actions/hello-world-javascript-action@main
+      with:
+        who-to-greet: ${{ steps.matrix.outputs.yamls.value }}
 
 
 
