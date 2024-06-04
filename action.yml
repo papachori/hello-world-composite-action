@@ -23,7 +23,7 @@ runs:
       id: print-to-log
       uses: actions/hello-world-javascript-action@main
       with:
-        who-to-greet: ${{ steps.matrix.outputs.yamls.value }}
+        who-to-greet: ${{ env.GITHUB_STEP_SUMMARY }}
 
 
 
