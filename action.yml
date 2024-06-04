@@ -13,11 +13,10 @@ runs:
   using: "composite"
   steps:
     - id: matrix
-      run: |
-        echo "value=[\"a\", \"b\", \"c\"]" >> $GITHUB_OUTPUT
+      yaml: [ "a", "b", "c" ]
     - run: 
         shell:
-          echo "${{ steps.matrix.outputs.value }}"
+          echo "${{ matrix.value }}"
     # - name: Print to Log
     #   id: print-to-log
     #   uses: actions/hello-world-javascript-action@main
